@@ -5,7 +5,7 @@ and we have a project with another api.
 # TO START WORKING with whatsapp clone
 1)download open new folder
 2)read the read me in new folder and do accordingly 
-3)download and open wepapis folder then open webapi.sln run the server iis
+3)download and open wepapis folder then open webapi.sln open package manager add-migration then update database and run the server iis
 4)run iis server and react parallel and they will work
 
 #to check correct api reaquest 
