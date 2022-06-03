@@ -27,3 +27,5 @@ we were working in another repositry but something went wrong there couldn't fin
 we used rect-router-dom version 5
 other things was from the ract like useState useRef...
 the use state we use in appjs then in every time we need to update we use it to render
+in api folder index.js there is a route to iis server name
+if the name of the server doesnt match the iis server change the name of the server according to iis server name in index.js 
