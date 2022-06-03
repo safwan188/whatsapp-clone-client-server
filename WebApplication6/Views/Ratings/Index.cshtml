@@ -1,0 +1,70 @@
+@model IEnumerable<WebApplication6.Models.Ratings>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1>Ratings</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@*<div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayNameFor(model => model.Rate)</h5>
+            <p class="card-text">@Html.DisplayNameFor(model => model.FeedBack)</p>
+            <p h5>@Html.DisplayNameFor(model => model.Author)</p>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+        </div>
+    </div>*@
+@{
+    float x = 0;
+    int i = 0;
+    foreach (var item in Model)
+    {
+        x = x + item.Rate;
+        i++;
+    }
+    if (i > 0)
+        x = x / i;
+}
+<h5>
+    Average: @x             
+</h5>
+@foreach (var item in Model)
+{
+<div class="card w-75">
+    <div class="card-body">
+
+        <h5 class="card-title">
+            @Html.DisplayNameFor(model => model.Rate):@{for (int j = 0; j < item.Rate; j++)
+                {
+                    <span class="fa fa-star" style="color:orange"></span>} }
+                    <br><br>
+             @Html.DisplayFor(modelItem => item.Time)
+             <br><br>
+             @Html.DisplayFor(modelItem => item.Date)
+        </h5>
+
+        <p class="card-text">
+            @Html.DisplayNameFor(model => model.FeedBack):
+            @Html.DisplayFor(modelItem => item.FeedBack)
+        </p>
+        <a href="#" class="primary">
+            By: @Html.DisplayFor(modelItem => item.Author)
+        </a>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
+</div>
+
+}
+@section Scripts{
+    
+}
